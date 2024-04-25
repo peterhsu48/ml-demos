@@ -76,10 +76,10 @@ class Model(nn.Module):
     # Fully connected layers
     self.fc1 = nn.Linear(6400, 120)
     self.fc2 = nn.Linear(120, 84)
-    self.fc3 = nn.Linear(84, 1)
+    self.fc3 = nn.Linear(84, 2)
 
-    # Sigmoid
-    self.sigmoid = nn.Sigmoid()
+    # Softmax
+    self.softmax = torch.nn.Softmax(dim=1)
 
   # forward uses the layers we defined in __init__ and specifies what order they should be arranged in
   # this is the actually function that gets called when we put our image data into the model
@@ -90,8 +90,7 @@ class Model(nn.Module):
     x = self.flatten(x)
     x = self.relu(self.fc1(x))
     x = self.relu(self.fc2(x))
-    x = self.sigmoid(self.fc3(x))
-    x = nn.Flatten(start_dim=0)(x)
+    x = self.softmax(self.fc3(x))
     return x
 
 # creates the model and sends it to the GPU
@@ -139,7 +138,7 @@ def train(dataset, model, loss_fn, optimizer, epochs, batch_size):
 
     # Input training data into the model and calculate the loss
     pred = model(x)
-    loss = loss_fn(pred, y.to(torch.float))
+    loss = loss_fn(pred, y)
 
     # Backpropagation steps (update model parameters)
     optimizer.zero_grad()
@@ -174,7 +173,7 @@ def validation(dataset, model, loss_fn, batch_size):
 
       # Predict and calculate loss on validation data
       pred = model(x)
-      loss = loss_fn(pred, y.to(torch.float))
+      loss = loss_fn(pred, y)
 
       loss_total += loss.item()
 
