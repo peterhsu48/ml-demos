@@ -76,7 +76,7 @@ class Model(nn.Module):
     # Fully connected layers
     self.fc1 = nn.Linear(6400, 120)
     self.fc2 = nn.Linear(120, 84)
-    self.fc3 = nn.Linear(84, 2)
+    self.fc3 = nn.Linear(84, 1)
 
     # Sigmoid
     self.sigmoid = nn.Sigmoid()
