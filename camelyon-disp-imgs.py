@@ -36,7 +36,7 @@ train_loader = get_train_loader("standard", train_data, batch_size=16)
 
 # this loop repeatedly asks train_loader for data (16 images each time)
 for x, y, metadata in train_loader:
-    # x represents your images as tensors (16 tensors for 16 images)
+    # x represents your images as a tensor (which contains 16 images)
     # these tensors store the pixel values of the images
     # images from this dataset are in RGB format.
     # images are made of pixels, and each pixel is represented by computers
