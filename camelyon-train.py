@@ -184,7 +184,7 @@ for epoch in range(epochs):
 
   print("---------------------------")
 
-  print("Epoch", epoch + 1)
+  print("Epoch", epoch)
   train_loss = train(train_loader, model, loss_fn, optimizer, epochs, batch_size)
   val_loss = validation(val_loader, model, loss_fn, batch_size)
 
