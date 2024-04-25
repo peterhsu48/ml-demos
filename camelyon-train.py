@@ -148,7 +148,7 @@ def train(dataset, model, loss_fn, optimizer, epochs, batch_size):
     loss_total += loss.item()
 
     if (batch % 100 == 0):
-      print("Training Batch {0} Loss: {1:0.3}".format(batch, loss.item()))
+      print("Training Batch {0} Loss: {1}".format(batch, loss.item()))
         
   return loss_total / len(train_loader)
 
