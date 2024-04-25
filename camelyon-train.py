@@ -192,3 +192,10 @@ for epoch in range(epochs):
   print("Validation loss for this epoch: {0}".format(val_loss))
 
   print("---------------------------")
+
+# next:
+# so this model probably isn't that great. how do we improve it?
+# validation loss is kind of weird right? accuracy (how many did we get correct / total images) is probably
+# an easier metric to for humans to understand, so how do we find accuracy?
+# I chose random parts to use (e.g., the choice of RMSProp for the optimizer was random, the choice of the learning rate
+# was also somewhat random, and who said I needed to do 3 epochs?) - what can we change to make this better?
