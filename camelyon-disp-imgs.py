@@ -11,8 +11,7 @@ import torch
 import matplotlib.pyplot as plt # for visualizing images
 
 # dataset represents our entire dataset of histology images
-# dataset = get_dataset(dataset="camelyon17", download=True)
-dataset = get_dataset("camelyon17", root_dir="../../data")
+dataset = get_dataset(dataset="camelyon17", download=True)
 
 # train_data represents the training dataset used to train models
 # later, we will want to test how good our model is by using the
